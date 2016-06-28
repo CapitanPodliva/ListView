@@ -1,0 +1,16 @@
+<project>
+ <properties retinaDisplay="0" winrt_package="com.yourdomain.yourapp" packageName="com.yourdomain.yourapp" assetsOnly="0" architecture="0" win_domain="giderosmobile.com" encryptAssets="0" fps="60" osx_org="GiderosMobile" html5_mem="256" version_code="1" osx_domain="giderosmobile.com" windowHeight="0" html5_host="" windowWidth="0" version="1.0" mouseToTouch="1" logicalHeight="480" orientation="0" winrt_org="GiderosMobile" autorotation="0" iosDevice="0" win_org="GiderosMobile" ios_bundle="com.yourdomain." logicalWidth="320" touchToMouse="1" app_icon="" app_icon_noexport="0" android_template="0" scaleMode="0" encryptCode="0" osx_bundle="com.yourdomain." osx_category="5" mouseTouchOrder="0">
+  <imageScales/>
+  <plugins/>
+  <exports/>
+ </properties>
+ <folder name="classes">
+  <file source="ListView.lua"/>
+ </folder>
+ <folder name="images">
+  <file source="images/The shapka.png"/>
+  <file source="images/The plashka.png"/>
+  <file source="images/Bottom lane.png"/>
+ </folder>
+ <file source="main.lua"/>
+</project>
