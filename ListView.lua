@@ -18,6 +18,7 @@ function ListView:init(width, height, posX, posY, texture, ...)
 	self.passedPath = 0
 	--positioning
 	self:setPosition(posX, posY)
+	--sprite:setPosition(posX,posY)
 	--creating main sprite
 	for i = 1,table.getn(self.texts),1 do
 		if i == 1 then 
@@ -67,7 +68,7 @@ function ListView:_addTopSprite(textIndex)
 		sprite:getChildAt(1):setPosition(sprite:getChildAt(2):getX(), 
 		sprite:getChildAt(2):getY() - sprite:getChildAt(1):getHeight())
 	else 
-		sprite:getChildAt(1):setPosition(self.posX, self.posY)
+		sprite:getChildAt(1):setPosition(0 - self.posX, 0 - self.posY)
 	end
 	
 	local textfield = TextField.new(nil, self.texts[textIndex]:getText())
@@ -97,7 +98,7 @@ end
 function ListView:onMouseMove(event)
 	if self:hitTestPoint(event.x, event.y) then
 		event:stopPropagation()
-		if sprite:getHeight() < self.height then 
+		if sprite:getHeight() < self.height + self.posY then 
 			do return end 
 		end 
 		self.endY = event.y
@@ -137,7 +138,7 @@ function ListView:onMouseMove(event)
 			self.passedPath = self.nRemovedTopSprites*sprite:getChildAt(1):getHeight()
 			
 			sprite:setPosition(self.posX,(sprite:getY() + pathY > self.posY and self.nRemovedTopSprites == 0 ) 
-			and self.posY or sprite:getY() + pathY)
+			and 0 - self.posY or sprite:getY() + pathY)
 			
 			if self.nRemovedTopSprites ~= 0 then 
 				
@@ -146,7 +147,7 @@ function ListView:onMouseMove(event)
 					self.nRemovedTopSprites = self.nRemovedTopSprites - 1
 				end
 				 
-					while (sprite:getHeight() > self.height + 2*sprite:getChildAt(1):getHeight()) do 
+					while (sprite:getHeight() > self.height + 2*sprite:getChildAt(1):getHeight() + self.posY) do 
 						sprite:removeChildAt(sprite:getNumChildren())
 						sprite:removeChildAt(sprite:getNumChildren())
 					end
